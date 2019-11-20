@@ -1,28 +1,30 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <Token /><br />
+    <CM />
+    <!-- <button v-on:click="getCookie">Login</button> -->
   </div>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
-
+import Token from "./components/Token.vue";
+import CM from "./components/CM.vue";
+import Cookies from "universal-cookie";
 export default {
   name: "app",
   components: {
-    HelloWorld
+    Token,
+    CM
+  },
+  methods: {
+    async getCookie() {
+      // const cookie = require("universal-cookie");
+      var cookies = new Cookies();
+      console.log(cookies.get("token"));
+    }
   }
 };
 </script>
 
-<style>
-#app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+<style></style>
